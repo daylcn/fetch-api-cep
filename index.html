@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content='yes' name='apple-mobile-web-app-capable' />
+    <meta content='yes' name='mobile-web-app-capable' />
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="black">
+    <link rel="stylesheet" href="index.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/logos/icon-192x192.png">
+    <title>CONSULTA DE CEP</title>
+</head>
+
+<body>
+    <div id="form">
+        <form action="">
+            <h2 class="title"> CONSULTA CEP </h2>
+
+            <label for="CEP">CEP</label>
+            <div class="input">
+                <input type="text" class="form-control" maxlength="9" id="cep" placeholder="00000-000">
+            </div>
+
+            <label for="logradouro"> Cidade</label>
+            <div class="input">
+                <input type="text" class="form-control" id="logradouro">
+            </div>
+
+            <label for="bairro">Bairro</label>
+            <div class="input">
+                <input type="text" class="form-control" id="bairro">
+            </div>
+
+            <label for="localidade">Cidade</label>
+            <div class="input">
+                <input type="text" class="form-control" id="localidade">
+            </div>
+
+            <label for="uf">UF</label>
+            <div class="input">
+                <input type="text" class="form-control" id="uf">
+            </div>
+
+            <label for="ddd">DDD</label>
+            <div class="input">
+
+                <input type="text" class="form-control" id="ddd">
+            </div>
+        </form>
+    </div>
+    <script src="index.js"> </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            if ('serviceWorker' in navigator) {
+                console.log('has serviceworker');
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('serviceWorker.js')
+                        .then((registration) => {
+                            console.log('Service worker registered.', registration);
+                        });
+                });
+            }
+            else {
+                console.log("Your browser not supports serviceWorkers");
+            }
+
+        }); 
+    </script>
+
+
+</body>
+
+</html>
